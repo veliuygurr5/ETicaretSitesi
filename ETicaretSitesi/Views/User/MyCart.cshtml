@@ -1,0 +1,28 @@
+﻿@using ETicaretSitesi.ExtraClasses
+@model List<ProductWithQuantity>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@{
+    foreach (var item in Model)
+    {
+        <div>@item.product.Title</div>
+        <div>Üründen sepette @item.quantity tane bulunmaktadır</div>
+        <a href="@Url.Action("DeleteFromCart","User", new {productid=item.product.ProductId})">Ürünü Sil</a>
+        <a href="@Url.Action("AddToCart","User", new {productid=item.product.ProductId})">Üründen Bir Tane Daha Ekle</a>
+    }
+
+    <div>
+        Toplam Fiyat: @ViewBag.total
+    </div>
+
+    <div>
+<a href="@Url.Action("ClearCart","User")">Sepeti Temizle</a>
+    </div>
+
+    <div>
+<a href="#">Siparişi Tamamla</a>
+    </div>
+}

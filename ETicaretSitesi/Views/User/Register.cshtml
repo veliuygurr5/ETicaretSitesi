@@ -1,0 +1,29 @@
+﻿@using EntityLayer
+@model User
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@using (Html.BeginForm("register", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.TextBoxFor(m=>m.Name)
+    @Html.ValidationMessageFor(m=>m.Name)
+
+    @Html.TextBoxFor(m => m.Surname)
+    @Html.ValidationMessageFor(m => m.Surname)
+
+    @Html.TextBoxFor(m => m.Mail)
+    @Html.ValidationMessageFor(m => m.Mail)
+
+    @Html.TextBoxFor(m => m.UserName)
+    @Html.ValidationMessageFor(m => m.UserName)
+
+    @Html.PasswordFor(m => m.Password)
+    @Html.ValidationMessageFor(m => m.Password)
+
+    <input type="submit" value="ekle" />
+}

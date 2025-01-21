@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>Satıcı Giriş Ekranı</h2>
+
+<form asp-action="LoginSeller" asp-controller="Seller" method="post">
+    @Html.AntiForgeryToken()
+    <div>
+        <label>Vergi Numarası:</label>
+        <input type="text" name="TaxNo" class="form-control" required />
+    </div>
+    <div>
+        <label>Şifre:</label>
+        <input type="password" name="Password" class="form-control" required />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary mt-3">Giriş Yap</button>
+    </div>
+</form>

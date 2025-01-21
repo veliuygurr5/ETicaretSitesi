@@ -1,0 +1,19 @@
+﻿@using EntityLayer
+@model List<Product>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div>Satıcının Ürünleri : </div>
+
+@{
+    foreach (var urun in Model)
+    {
+        <div>@urun.Title</div>
+        <div>@urun.Price</div>
+        <div>@urun.Description</div>
+        <img src="@urun.Image1" /> 
+        <a href="@Url.Action("DeleteProduct","Seller", new {urunid=urun.ProductId})">Ürünümü Sil</a>
+        <a href="@Url.Action("UpdateProduct","Seller", new {urunid=urun.ProductId})">Ürünümü Güncelle</a>
+    }
+}

@@ -1,0 +1,49 @@
+﻿@using EntityLayer
+@model Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="product-detail-container">
+    <div class="product-image">
+        <img src="@Model.Image1" alt="@Model.Title" class="img-fluid" />
+    </div>
+
+    <div class="product-info">
+        <h1>@Model.Title</h1>
+        <p><strong>Price:</strong> @Model.Price.ToString("C")</p>
+
+        <div class="product-description">
+            <h3>Description</h3>
+            <p>@Model.Description</p>
+        </div>
+
+        <div class="product-category">
+            <p><strong>Category:</strong> @Model.Categoryid</p>
+        </div>
+
+        <!-- Add to Cart Form -->
+        <div class="add-to-cart">
+            <form asp-action="AddToCart" method="post">
+                <input type="hidden" name="productid" value="@Model.ProductId" />
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+        </div>
+
+     @*    <!-- Product Reviews (if applicable) -->
+        <div class="product-reviews">
+            <h3>Reviews</h3>
+            <ul>
+                @foreach (var review in Model.Reviews)
+                {
+                    <li>
+                        <strong>@review.UserName</strong> (Rating: @review.Rating)
+                        <p>@review.Comment</p>
+                    </li>
+                }
+            </ul>
+        </div> *@
+    </div>
+</div>
+

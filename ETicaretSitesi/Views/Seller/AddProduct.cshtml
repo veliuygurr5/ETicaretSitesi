@@ -1,0 +1,19 @@
+﻿@using EntityLayer;
+@model Product
+@*
+*@
+
+	@using(Html.BeginForm("AddProduct", "Seller", FormMethod.Post))
+	{
+		@Html.TextBoxFor(m => m.Title)
+		@Html.TextBoxFor(m => m.Description)
+		@Html.TextBoxFor(m => m.Price)
+		@Html.DropDownListFor(m => m.Categoryid, new SelectList(ViewBag.categori, "Value", "Text"))
+		@Html.TextBoxFor(m => m.Image1)
+		@Html.TextBoxFor(m => m.Image2)
+		@Html.TextBoxFor(m => m.Image3)
+		@Html.TextBoxFor(m => m.Image4)
+		@Html.TextBoxFor(m => m.Image5)
+		<input type="submit" value="ürün ekle" />
+	}
+
